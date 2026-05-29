@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Georgia, serif;
+
+    background:url("background.jpg") center center/cover no-repeat;
+    overflow:hidden;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+}
+
+.message-box{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:800px;
+    color:white;
+    font-size:1.4rem;
+    line-height:1.8;
+    text-align:center;
+    padding:20px;
+}
+
+.cursor{
+    display:inline-block;
+    animation:blink 0.8s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+    .message-box{
+        font-size:1.1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="message-box">
+    <span id="text"></span><span class="cursor">|</span>
+</div>
+
+<script>
+
+const message = `My Dearest Sushi, ❤️
+
+I really don't know how to say this properly, but I'm truly sorry for everything. Most of the things that happened were because of my own misunderstandings and overthinking, and I know I hurt you because of that. You never deserved any of it.
+
+Seeing you upset hurts me more than I can explain. I can't stand seeing you sad, especially when I'm the reason for it. My heart is still heavy thinking about the way I made you feel.
+
+You mean so much to me, Sushi. You're not just my girlfriend, you're a huge part of my life. I promise I'll always be there for you, through your smiles, your struggles, and even your tears. If there's anything I can do to make things right, I will.
+
+I know how much you love me, and I want you to know that I love you just as much, maybe even more than I can ever put into words.
+
+I'm really, really sorry for hurting you. Please forgive me. ❤️
+
+I love you, Sushi. Always and forever. ❤️🥺✨`;
+
+const textElement = document.getElementById("text");
+
+let index = 0;
+
+function typeWriter(){
+    if(index < message.length){
+        textElement.innerHTML += message.charAt(index);
+        index++;
+
+        setTimeout(typeWriter, 100); // typing speed
+    }
+}
+
+typeWriter();
+
+</script>
+
+</body>
+</html>
